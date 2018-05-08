@@ -1,0 +1,75 @@
+<form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm"  autocomplete="off">
+  <h3>Hotel Form</h3>
+  <table class="fullwidth" cellspacing="0">
+    <tr>
+      <td>
+        <mat-input-container class="fullwidth">
+          <input  matInput placeholder="Destination" id="destination" [(ngModel)]="hotel.destination" name="destination">
+        </mat-input-container>
+      </td>
+      <td>
+        <mat-input-container class="fullwidth">
+          <input matInput maxlength="30" #otel placeholder="Hotel" id="hotel" [(ngModel)]="hotel.hotel" name="hotel">
+            <mat-hint align="end">
+            {{otel.value.length}} / 30
+          </mat-hint>
+        </mat-input-container>
+      </td>
+    </tr>
+  </table>
+<table class="fullwidth" cellspacing="0">
+    <tr>
+      <td>
+        <mat-input-container class="fullwidth">
+         <input type="number"  min="1" step="1" oninput="validity.valid||(value='');" matInput placeholder="Room" id="room" [(ngModel)]="hotel.room" name="room">
+        </mat-input-container>
+      </td>
+ <td>
+    <mat-input-container class="fullwidth">
+     <input type="number"  min="1" step="1" oninput="validity.valid||(value='');" matInput placeholder="Guest" id="guest" [(ngModel)]="hotel.guest" name="guest">
+    </mat-input-container>
+  </td>
+     </tr>
+       </table>
+
+  <table class="fullwidth" cellspacing="0">
+    <tr>
+      <td>
+        <mat-input-container class="fullwidth">
+          <input type="date" matInput placeholder="Check_in" id="check_in" [(ngModel)]="hotel.check_in" name="check_in">
+        </mat-input-container>
+      </td>
+       <td>
+        <mat-input-container class="fullwidth">
+          <input type="date" matInput placeholder="Check_out" id="check_out" [(ngModel)]="hotel.check_out" name="check_out">
+        </mat-input-container>
+      </td>
+      </tr>
+     
+  </table>
+    <table class="fullwidth" cellspacing="0">
+    <tr>
+      <td>
+        <mat-input-container class="fullwidth">
+       <input  type="number" min="1" max="30" step="1" matInput placeholder="Duration" id="duration" [(ngModel)]="hotel.duration" name="duration">
+        
+        </mat-input-container>
+       </td>
+        <td>
+       <button md-raised-button (click)="openSnackbar()">Open Snackbar</button>
+      </td>
+       <td>
+      <span matTooltip="message to be displayed" matTooltipPosition="below">This text has a tooltip!</span>
+      </td>
+      </tr>
+     
+  </table>
+    
+
+  <p>
+    <button type="submit" mat-raised-button>Submit</button>
+    <button mat-raised-button (click)="openDialog()">Search</button>
+     <strong>Hotel: {{name}}</strong>
+    
+  </p>
+</form>
